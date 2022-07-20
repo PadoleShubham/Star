@@ -752,7 +752,7 @@ namespace Star.Coding_Task
                 }
                 else
                 {
-                   
+
                     Console.WriteLine(number[i]);
                 }
             }
@@ -765,14 +765,581 @@ namespace Star.Coding_Task
         static void Main(string[] args)
         {
             string[] name = { "Rahul", "Mohit", "Naman", "Adity", "Roshani", "Abhay" };
-         
+
             for (int i = 0; i < name.Length; i++)
             {
-               
-                Console.WriteLine(name[i] + "=" +name[i].Length);
+
+                Console.WriteLine(name[i] + "=" + name[i].Length);
 
             }
         }
     }
-    
+
+
+    //Return test task 
+
+    //4.Create an array of 10 names sort in descending order
+
+    class SortNames
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter size of array");
+            int num = int.Parse(Console.ReadLine());
+            String[] str = new String[num];
+            Console.WriteLine("enter names");
+            for (int i = 0; i < num; i++)
+            {
+                str[i] = Console.ReadLine();
+            }
+
+            for (int i = 0; i <= str.Length - 1; i++)
+            {
+                for (int j = i + 1; j < str.Length; j++)
+                {
+                    String temp = "";
+                    if (str[i].CompareTo(str[j]) > 0)
+                    {
+                        temp = str[i];
+                        str[i] = str[j];
+                        str[j] = temp;
+                    }
+                }
+            }
+            Console.WriteLine("sort in descending order");
+            for (int i = 0; i < str.Length; i++)
+            {
+                Console.WriteLine(str[i]);
+            }
+        }
+    }
+
+    //1.Write a  program to find the duplicate words and their number of occurrences in a string
+
+    class DuplicateString
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter Name");
+            string s = Console.ReadLine();
+            s = s.ToLower();
+            string[] str = s.Split();
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                int c = 1;
+                for (int j = i + 1; j < str.Length; j++)
+                {
+                    if (str[i].Equals(str[j]))
+                    {
+                        c++;
+                    }
+
+                }
+                if (c > 1 && str[i] != "0")
+                {
+                    Console.WriteLine(str[i]);
+                    Console.WriteLine(c);
+                }
+
+            }
+
+        }
+    }
+
+    //2.Write a program to count the number of words in a string
+    class NumberOfWords
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter name");
+            string s = Console.ReadLine();
+            s = s.ToLower();
+            char[] c = new char[s.Length];
+            int count = 0;
+            for (int i = 0; i < c.Length; i++)
+            {
+                count++;
+
+            }
+            Console.WriteLine("total word in string=" + count);
+        }
+    }
+
+    //3.Write a  program to check whether two strings are anagram or not?
+
+    class AngranOrNot
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the First String");
+            string str1 = Console.ReadLine();
+            Console.WriteLine("Enter The Second String ");
+            string str2 = Console.ReadLine();
+            string s = str1.ToLower();
+            string s1 = str2.ToLower();
+            if (s.Length == s1.Length)
+            {
+                char[] ch1 = s.ToCharArray();
+                char[] ch2 = s1.ToCharArray();
+
+                Array.Sort(ch1);
+                Array.Sort(ch2);
+                string st = new string(ch1);
+                string st2 = new string(ch2);
+
+                if (st == st2)
+                {
+                    Console.WriteLine("Anagram");
+                }
+                else
+                {
+                    Console.WriteLine("Angram");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Not Anagram");
+            }
+        }
+    }
+
+    //6.Write a  program to convert uppercase string to lowercase
+    class ConvertCase
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter String");
+            string s = Console.ReadLine();
+            s = s.ToUpper();
+            Console.WriteLine("After Convert into Lowercase");
+            string str = s.ToLower();
+            Console.WriteLine(str);
+        }
+    }
+
+    //7.	WAP to reverse the array itself, don’t print array in reverse – I want current array reverse. Means e.g. arr[] = [3, 90, 45, 29, 37, 78] so your same array must be [78, 37, 29, 45, 90, 3] without using temporary array
+
+    class ReverseArrray
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter array of size");
+            int num = int.Parse(Console.ReadLine());
+            int[] arr = new int[num];
+            Console.WriteLine("enter array element");
+            for (int i = 0; i < num; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("after reverse array element");
+
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                Console.WriteLine(arr[i]);
+            }
+
+        }
+    }
+
+    // 9.WAP sort array elements in ascending order
+    class AscendingArray
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter array size");
+            int num = int.Parse(Console.ReadLine());
+            int[] arr = new int[num];
+            Console.WriteLine("Enter array element");
+            for (int i = 0; i < num; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+            int temp = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+
+            }
+            Console.WriteLine("Ascending order array");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+
+        }
+    }
+    //11.WAP to replace all negative value with its immediate left elements square. Means arr[] = [12, 3,-19, 29, 5, -61, 44, 7, -9] Output array will be[12, 3, 9, 29, 5, 25, 44, 7, 49].
+
+    class RemoveNegative
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter array size");
+            int size = int.Parse(Console.ReadLine());
+            int[] arr = new int[size];
+            Console.WriteLine("Enter array element");
+            for (int i = 0; i < size; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("Left Element Square");
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                    if (arr[i] < 0)
+                    {
+                         arr[i]++;
+                         Console.WriteLine(arr[i]*arr[i]);
+                    }
+                    else
+                    {
+                        Console.WriteLine(arr[i]);
+                    }
+
+            }
+
+        }
+    }
+
+    //13.WAP to print all unique elements in the array
+    class UniqueElement
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter the array of size");
+            int num = int.Parse(Console.ReadLine());
+            int[] arr = new int[num];
+            Console.WriteLine("enter the array element");
+            for (int i = 0; i < num; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            int option = -1;
+            int[] arr1 = new int[num];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int count = 1;
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] == arr[j])
+                    {
+                        count++;
+                        arr1[j] = option;
+                    }
+                }
+                if (arr1[i] != -1)
+                {
+                    arr1[i] = count;
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr1[i] == 1)
+                {
+                    Console.WriteLine(arr[i]);
+                }
+            }
+        }
+    }
+
+    //12.WAP to find min character in character array. Means e.g. arr[] = [‘A’, ‘D’, ‘E’, ‘x’, ‘z’, ‘R’], so min character is ‘A’
+    class MinCharacter
+    {
+        static void Main(string[] args)
+        {
+            char[] ch = new char[5];
+            Console.WriteLine("Enter the Character in an array");
+            for (int i = 0; i < ch.Length; i++)
+            {
+                ch[i] = char.Parse(Console.ReadLine());
+
+            }
+            char min = ch[0];
+            for (int i = 0; i < ch.Length; i++)
+            {
+                if (ch[i] < min)
+                {
+                    min = ch[i];
+                }
+            }
+            Console.WriteLine("Minimum Character or Array is=" + min);
+
+        }
+    }
+    //5.Write a program to find total number of alphabets, digits or special character in a string.
+    class FindSymbol
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter string");
+            string s = Console.ReadLine();
+            int digit = 0, ch = 0, spec = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                
+
+                if (s[i] >= 'A' && s[i] <= 'Z' || s[i] >= 'a' && s[i] <= 'z')
+                {
+                    ch++;
+                }
+                else if (s[i] >= '0' && s[i] <= '9')
+                {
+                    digit++;
+                }
+                else
+                {
+                    spec++;
+                }
+               
+            }
+            Console.WriteLine("number of alphabet="+ch);
+            Console.WriteLine("number of digit="+digit);
+            Console.WriteLine("special character="+spec);
+        }
+    }
+
+    //8.WAP to merge 2 arrays to 3rd array. 3rd array should not have elements of same value
+    class MergaArray
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter array one size");
+            int size = int.Parse(Console.ReadLine());
+            int[] arrOne = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                arrOne[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("enter array second size");
+            int num = int.Parse(Console.ReadLine());
+            int[] arrTwo = new int[num];
+            for (int i = 0; i < num; i++)
+            {
+                arrTwo[i] = int.Parse(Console.ReadLine());
+            }
+            int a1 = arrOne.Length;
+            int b1 = arrTwo.Length;
+            int c = a1 + b1;
+            int[] arrThird = new int[c];
+            for (int i = 0; i < a1; i++)
+            {
+                arrThird[i]= arrOne[i];
+            }
+            for (int i = 0; i < b1; i++)
+            {
+                arrThird[a1+i]= arrTwo[i];
+            }
+            
+            for (int i = 0; i < arrThird.Length; i++)
+            {
+                
+                for (int j = i+1; j < arrThird.Length; j++)
+                {
+                    if (arrThird[i] != arrThird[j])
+                    {
+                        Console.WriteLine(arrThird[j]);
+                    }
+                }
+            }
+            
+        }
+    }
+
+    //10.WAP to replace all the 0’s with 1’s in your array. Your array is [26, 0, 67, 45, 0, 78, 54, 34, 10, 0, 34].
+
+    class changeNumber
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter arry size");
+            int size = int.Parse(Console.ReadLine());
+            int[] arr = new int[size];
+            Console.WriteLine("Enter array element");
+            for (int i = 0; i < size; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] <=0)
+                {
+                    arr[i] = 1;
+                }
+            }
+            Console.WriteLine("replace all the 0’s with 1’s in array");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+
+        }
+    }
+
+
+    // Simple programs
+
+    //1. Write a  program to enter two numbers and find their sum.
+
+    class SumNumber
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter two number");
+            int num1 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
+
+            int sum = num1 + num2; 
+
+            Console.WriteLine("Sum of two number="+sum);
+        }
+    }
+
+    //3. Write a  program to enter length and breadth of a rectangle and find its Area
+    class ReactangleArea
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter leangth and breadth");
+            int len = int.Parse(Console.ReadLine());
+            int breadth = int.Parse(Console.ReadLine());
+
+            int area = len * breadth;
+            Console.WriteLine("area of reactangle="+area);
+        }
+    }
+
+    //Write a  program to enter base and height of a triangle and find its area..
+    class TraingleArea
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter base and height");
+            int ba = int.Parse(Console.ReadLine());
+            int height = int.Parse(Console.ReadLine());
+
+            int area = (ba * height) / 2;
+            Console.WriteLine("Area of Traingle="+area);
+        }
+    }
+
+    //5.Write a Program to calculate Square of given number
+
+    class SquareOFNumber
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter number");
+            int num = int.Parse(Console.ReadLine());
+
+            int square = num * num;
+            Console.WriteLine("Square of number="+square);
+        }
+    }
+
+    //6. Write a Program to calculate cube of given number
+
+    class CubeOfNumber
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter number");
+            int num = int.Parse(Console.ReadLine());
+
+            int cube = num * num * num;
+            Console.WriteLine("Cube of number=" + cube);
+        }
+    }
+
+    // 7.Write a program to enter length in centimeter and convert it into meter and kilometer.
+
+    class ConvertToMeter
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter Length in Centimeter");
+            float cm = float.Parse(Console.ReadLine());
+
+            float meter = cm / 100;
+            float kilometer = cm / 100000;
+
+            Console.WriteLine("Centimetr into Meter="+meter);
+            Console.WriteLine("Centimeter into kilometer="+kilometer);
+        }
+    }
+
+    //  8.Write a Java program to enter marks of five subjects and calculate total, average and percentage.
+
+    class CalculateMarks
+    {
+        static void Main(string[] args)
+        {
+            int[] marks = new int[5];
+            Console.WriteLine("Enter The Five Subject Marks");
+            for (int i = 0; i <marks.Length; i++)
+            {
+                marks[i] = int.Parse(Console.ReadLine());
+
+            }
+            int total = 0;
+            
+            for (int i = 0; i < marks.Length; i++)
+            {
+                total = total + marks[i];
+            }
+            int avg = total / marks.Length;
+            float percentage = (float)(total/500.0)*100;
+            Console.WriteLine("Sum of subjects="+total);
+            Console.WriteLine("Avg of subject="+avg);
+            Console.WriteLine("Percentage="+percentage);
+
+
+        }
+    }
+
+    //9.Write a Java program to enter P, T, R and calculate Simple Interest.
+
+    class SimpleInterest
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter Principle and rate of interest and time");
+            int pi = int.Parse(Console.ReadLine());
+            float interest = float.Parse(Console.ReadLine());
+            int times = int.Parse(Console.ReadLine());
+
+            float si = pi * interest * times;
+
+            Console.WriteLine("Simple Interest="+si);
+
+        }
+    }
+
+    //10.Write a Java program to enter length and breadth of a rectangle and find its perimeter.
+
+    class Perimeters
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter length and breadth");
+            int l = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+
+            int pri = 2*(l+b);
+
+            Console.WriteLine("Perimeter ="+pri);
+        }
+    }
 }

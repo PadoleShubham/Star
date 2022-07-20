@@ -1567,7 +1567,121 @@ namespace Star
         }
     }
 
+    class UsingMethodArray
+    {
+       
+        public static int[] sortingArray(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int temp = 0;
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                       temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
+        static void Main(string[] args)
+        {
+           
+            Console.WriteLine("enter array size");
+            int num = int.Parse(Console.ReadLine());
+            int[] arr = new int[num];
+            Console.WriteLine("enter array element");
+            for (int i = 0; i < num; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
 
+           int[] b= UsingMethodArray.sortingArray(arr);
+            Console.WriteLine(string.Join(" ",b));
+
+
+        }
+        
+    }
+
+    //String Program
+
+    class WordReverse
+    {
+        static void Main(string[] args)
+        {
+            string str = "India is my Country";
+            string[] s = str.Split("");
+
+            string reverse = "";
+            for (int i = 0; i < s.Length; i++)
+            {
+                string word = s[i];
+                string wordreverse = "";
+                for (int j = word.Length - 1; j >= 0; j--)
+                {
+                    wordreverse = wordreverse + word[j];
+                }
+                reverse = reverse + wordreverse + " ";
+            }
+
+            Console.WriteLine(reverse);
+        }
+    }
+
+    class DigitSum
+    {
+        public int SumOfDigit(String str)
+        {
+            int sum = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] >= '0' && str[i] <= '9')
+                {
+                    int x = (int)(Char.GetNumericValue(str[i]));
+                    sum = sum + x;
+                }
+            }
+
+            return sum;
+        }
+        static void Main(string[] args)
+        {
+            DigitSum d = new DigitSum();
+            Console.WriteLine("enter the string");
+            string s = Console.ReadLine();
+            int ans = d.SumOfDigit(s);
+            Console.WriteLine(ans);
+        }
+    }
+
+    //String Star Pattern task
+    class StringPattern
+    {
+        static void Main(string[] args)
+        {
+            string str = "I Like India Country";
+            string[] s = str.Split(" ");
+
+            for (int r = 0; r <=s.Length; r++)
+            {
+                for (int j = 0; j <r; j++)
+                {
+                    Console.Write(s[j]);
+                }
+                Console.WriteLine(" ");
+            }
+        }
+    }
+
+    //Avg Of Digit
+
+    
+
+   
 
 }
  
