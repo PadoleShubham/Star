@@ -1342,4 +1342,23 @@ namespace Star.Coding_Task
             Console.WriteLine("Perimeter ="+pri);
         }
     }
+
+    class ProgramTwo
+    {
+        static void Main(string[] args)
+
+        {
+            int k = 0;
+            for (int r = 1; r <= 4; r++)
+            {
+                for (int c = 1; c <= r; c++)
+                {
+                    Console.Write(k);
+                    k++;
+
+                }
+                Console.WriteLine();
+            }
+        }
+    }
 }

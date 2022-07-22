@@ -184,14 +184,23 @@ namespace Star
     class DemoDD
     {
 
-        /*public static bool isPrime(int a)
+        static bool isPrime(int a)
         {
-            
-        }*/
+            bool isprime = true;
+            for (int i = 2; i <= a / 2; i++)
+            {
+                if (a % i == 0)
+                {
+                    isprime = false;
+                    break;
+                }
+            }
+            return isprime;
+        }
         static void Main(string[] args)
         {
 
-            //
+            //using delegate
             mydel3 d = delegate (int a, int b)
               {
                   Console.WriteLine("sum=" + (a + b));
@@ -205,7 +214,10 @@ namespace Star
                 Console.WriteLine("Adition ="+(a+b));
             };
 
-           /* mydel4 d2 = (n) =>
+            mydel4 d4 = isPrime;
+            d4(9);
+
+          /*  mydel4 d2 = (n) =>
               {
                   bool isPrime = true;
                   for (int i = 2; i <= n / 2; i++)
@@ -242,14 +254,17 @@ namespace Star
 
         static void Main(string[] args)
         {
+            //using fun delegate
             Func<string> d1 = greet;
             Func<int, int, int, int> d2 = product;
             int prod = d2(2, 3, 4);
             Console.WriteLine("Multiplication="+prod);
 
+            //using action delegate
             Action<int, int> d3 = (a, b) => Console.WriteLine("Addition="+(a+b));
             d3(89, 9);
 
+            //using predicate delegate
             Predicate<int> d5 = isEven;
             bool bb = d5(75);
         }
@@ -265,7 +280,7 @@ namespace Star
         public static void square(int a, Action d1)
         {
             Console.WriteLine("Square="+a*a);
-            d1();
+            d1();  // calling function
         }
 
         static void Main(string[] args)
@@ -273,4 +288,110 @@ namespace Star
             square(9, display);
         }
     }
+
+    //Collection List
+
+    class WorkList
+    {
+        static void Main(string[] args)
+        {
+            List<string> l2 = new List<string>() { "Deepa","Medha","chitra"};
+            List<string> lst = new List<string>(20);
+            Console.WriteLine(lst.Count);//return 0
+            Console.WriteLine(lst.Capacity);//return capacity of list 20
+            lst.Add("A");
+            lst.Add("B");
+            lst.Add("C");
+            lst.Add("A");
+            lst.Add("E");
+            lst.Add("H");
+
+            /* lst.AddRange(0, l2);*/
+            /* lst.InsertRange(0, l2);*/
+           /* lst.Remove("A");
+            lst.RemoveAt(0);
+            lst.Add("Chitra");
+            lst.Insert(1, "chitra");*/
+
+            string[] str = lst.ToArray();
+           /* lst.Clear();*/
+            int idx1 = lst.IndexOf("E");// return index of E
+            int idx2 = lst.LastIndexOf("A");//Return index of A last
+            Console.WriteLine(lst.Contains("KAVITA"));
+
+        }
+    }
+
+    class Students:IComparable<Students>
+    {
+        string name;
+        int precent;
+        string qualifiction;
+
+        public Students(string name, int precent, string qualifiction)
+        {
+            this.Name = name;
+            this.Precent = precent;
+            this.Qualifiction = qualifiction;
+        }
+        public override string ToString()
+        {
+            return "Name=" + name + "Percentage=" + precent + "Qualifiction" + qualifiction;
+        }
+
+        int IComparable<Students>.CompareTo(Students other)
+        {
+            return this.name.CompareTo(other.name);
+        }
+
+        public string Name { get => name; set => name = value; }
+        public int Precent { get => precent; set => precent = value; }
+        public string Qualifiction { get => qualifiction; set => qualifiction = value; }
+
+        
+    }
+    class B
+    {
+        static void Main(string[] args)
+        {
+            List<Students> lst = new List<Students>();
+            lst.Add(new Students("Ajnkya",90,"BE"));
+            lst.Add(new Students("Sujay",93,"BE"));
+            lst.Add(new Students("Eshan",88,"BE"));
+            lst.Add(new Students("Kunal",92,"BE"));
+            lst.Add(new Students("Ajit",89,"BE"));
+
+            lst.Sort();
+            lst.ForEach(s1 => Console.WriteLine(s1));
+
+          /*  List<Student> ss = lst.FindAll(sobj=>sobj.Precent>90);
+            foreach (Student s in lst)
+            {
+                if(s.precent>90)
+                    Console.WriteLine(sname+""+s.precent+""+s.qualifiction);
+            }*/
+        }
+    }
+
+
+    class A
+    {
+        static bool isOdd(int n)
+        {
+            Console.WriteLine("In odd"+n);
+            return n % 2 == 1;
+
+        }
+        static void Main(string[] args)
+        {
+            List<int> lst = new List<int>() { 23,44,56,77,89,90,35};
+            List<int> ls = lst.FindAll(isOdd);
+
+            foreach (int s in ls)
+            {
+                Console.WriteLine(s+" ");
+            }
+        }
+    }
+
 }
