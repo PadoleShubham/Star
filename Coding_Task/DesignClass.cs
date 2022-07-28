@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 
@@ -1343,21 +1344,605 @@ namespace Star.Coding_Task
         }
     }
 
-    class ProgramTwo
+
+    //Collection Assignment for Medha Mam
+
+    //1.WAP to add elements to and print content of it where Integer is used. In second List String is used.
+
+    class Firsts
     {
         static void Main(string[] args)
-
         {
-            int k = 0;
-            for (int r = 1; r <= 4; r++)
+            Console.WriteLine("Enter number");
+            int num = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter string");
+            string str = Console.ReadLine();
+           
+
+            //create integer
+            List<int> l1 = new List<int>();
+     
+            //create string list
+            List<string> l2 = new List<string>();
+           
+            //number is integer
+                l1.Add(num);
+          
+            //element is string
+                l2.Add(str);
+            
+
+      
+            Console.WriteLine("Integer List..........");
+            foreach (int item in l1)
             {
-                for (int c = 1; c <= r; c++)
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("String List...........");
+            foreach (string sts in l2)
+            {
+                Console.WriteLine(sts);
+            }
+
+        }
+    }
+
+    //2.WAP add elements to List 0th location keep Integer, 1st location String now print each element and display contents.
+
+    class DiffElement
+    {
+        static void Main(string[] args)
+        {
+            //create int list
+            List<int> lst = new List<int>();
+
+            //create string list
+            List<string> l1 = new List<string>();
+
+            l1.Add("Shyam");
+            //add element in list
+
+            lst.Add(10);
+            lst.Add(20);
+            lst.Add(30);
+            lst.Add(42);
+            lst.Add(92);
+
+            //add string in 1 th postion
+            /* lst.InsertRange(1,l1);*/
+
+            lst.Insert(1, 'A');
+
+            foreach(int item in lst)
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+
+    //3.WAP to create a new List, add some colors (string) and print the collection.
+
+    class ColorList
+    {
+        static void Main(string[] args)
+        {
+
+            //create a new List
+            List<string> lst = new List<string>(20);
+
+            //add color in list
+            lst.Add("Yellow");
+            lst.Add("Green");
+            lst.Add("White");
+            lst.Add("Red");
+            lst.Add("Black");
+            lst.Add("Purple");
+
+            //print all color collection
+            foreach (string str in lst )
+            {
+                Console.WriteLine(str);
+            }
+
+
+        }
+    }
+
+    //4.WAP of swap two elements in an List
+
+    class NumberSwap
+    {
+
+        static void Main(string[] args)
+        {
+            //create list
+            List<int> lst = new List<int>();
+
+            //Add number in list
+            lst.Add(10);
+            lst.Add(8);
+
+            lst.ForEach(s => Console.WriteLine(s));
+            int temp = lst[0];
+            lst[0] = lst[1];
+            lst[1] = temp;
+            Console.WriteLine("After swaping......");
+            lst.ForEach(s => Console.WriteLine(s));
+
+        }
+    }
+
+    //5.WAP to replace the second element of an List with the specified element
+
+    class NumberReplace
+    {
+        static void Main(string[] args)
+        {
+            //create integer list
+            List<int> lst = new List<int>();
+
+            //add number in list
+            lst.Add(10);
+            lst.Add(20);
+            lst.Add(15);
+            lst.Add(21);
+            lst.Add(35);
+
+            //print all list
+            foreach (int num in lst)
+            {
+                Console.WriteLine(num);
+            }
+
+            //replace the 2 postion number
+            lst.Insert(2,22);
+
+            Console.WriteLine("After Replace element......");
+            foreach (int num in lst)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+
+    //6.WAP to create List of Students and iterate over it.
+
+    class StudentList
+    {
+        string name;
+        string branch;
+        int percentage;
+
+        public StudentList(string name, string branch, int percentage)
+        {
+            this.name = name;
+            this.branch = branch;
+            this.percentage = percentage;
+        }
+
+        public override string ToString()
+        {
+            return "name=" + name + " Branch=" + branch + " Precentage=" + percentage;
+        }
+
+        public string Name { get => name; set => name = value; }
+        public string Branch { get => branch; set => branch = value; }
+        public int Percentage { get => percentage; set => percentage = value; }
+    }
+    class WithStudentList
+    {
+        static void Main(string[] args)
+        {
+            //Create Student List
+            List<StudentList> st = new List<StudentList>();
+
+            //add details in list
+            st.Add(new StudentList("Raj","CSE",95));
+            st.Add(new StudentList("Shyam","IT",90));
+            st.Add(new StudentList("Govind","ET",92));
+            st.Add(new StudentList("Rushi","ME",88));
+            st.Add(new StudentList("Krushna","CSE",91));
+
+            st.ForEach(s1 => Console.WriteLine(s1));
+        }
+    }
+
+    //7.WAP to convert array to List.
+
+    class ArrayToList
+    {
+        static void Main(string[] args)
+        {
+            //create array
+            int[] num = { 10, 20, 77, 22, 33 };
+
+
+            //Convert array to list
+
+            List<int> lst = new List<int>(num);
+            
+
+            foreach (int item in lst)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+    }
+
+    //8.WAP to print list in reverse order.
+
+    class WithReverse
+    {
+        static void Main(string[] args)
+        {
+
+            //create list
+            List<int> lst = new List<int>();
+
+            lst.Add(10);
+            lst.Add(9);
+            lst.Add(22);
+            lst.Add(15);
+            lst.Add(55);
+            lst.Add(40);
+
+            int temp = 0;
+
+            for (int i = 0; i < lst.Count; i++)
+            {
+                for (int j = i; j < lst.Count; j++)
                 {
-                    Console.Write(k);
-                    k++;
+                    temp = lst[i];
+                    lst[i] = lst[j];
+                    lst[j] = temp;
 
                 }
-                Console.WriteLine();
+            }
+
+            Console.WriteLine("Reverse order........");
+            foreach (int item in lst)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+    }
+    //9.WAP to sort the elements of List that contains String objects. Print List.
+    class BookList:IComparable<BookList>
+    {
+        string bname;
+        string author;
+        int price;
+
+        public BookList(string bname, string author, int price)
+        {
+            this.Bname = bname;
+            this.Author = author;
+            this.Price = price;
+        }
+        public override string ToString()
+        {
+            return "Bname=" + bname + " Author=" + author + " Price=" + price;
+        }
+
+        public int CompareTo(BookList other)
+        {
+            return this.bname.CompareTo(this.bname);
+        }
+
+        public string Bname { get => bname; set => bname = value; }
+        public string Author { get => author; set => author = value; }
+        public int Price { get => price; set => price = value; }
+
+        
+    }
+
+    class BookDetails
+    {
+        static void Main(string[] args)
+        {
+            //create Book list
+            List<BookList> bk = new List<BookList>();
+
+            //add book details in list
+            bk.Add(new BookList("Java","Suninfo",150));
+            bk.Add(new BookList("C#","Microsoft",125));
+            bk.Add(new BookList("C++","Denict",155));
+            bk.Add(new BookList("C","Denis Ritche",100));
+
+            bk.Sort();
+            foreach (BookList b in bk)
+            {
+                Console.WriteLine(b);
+            }
+
+        }
+    }
+
+    //10WAP to create a class Employee with (name, designation and age).
+    //Now create and add Employee objects elements to List.
+    //Sort the List by age in descending order and print List.
+
+    class Employee :IComparable<Employee>
+    {
+        string ename;
+        string designation;
+        int age;
+
+        public Employee(string ename, string designation, int age)
+        {
+            this.Ename = ename;
+            this.Designation = designation;
+            this.Age = age;
+        }
+
+        public override string ToString()
+        {
+            return "Ename=" + ename + "Designation=" + designation + "Age=" + age;
+        }
+        int IComparable<Employee>.CompareTo(Employee other)
+
+        {
+            return this.ename.CompareTo(this.ename);
+        }
+
+        public string Ename { get => ename; set => ename = value; }
+        public string Designation { get => designation; set => designation = value; }
+        public int Age { get => age; set => age = value; }
+
+        
+    }
+
+    class EmpList
+    {
+        static void Main(string[] args)
+        {
+            //create List
+
+            List<Employee> emp = new List<Employee>();
+            emp.Add(new Employee("Rajesh","Java Developer",25));
+            emp.Add(new Employee("Nagesh","Sap Developer",26));
+            emp.Add(new Employee("Shakir", "Full stack", 28));
+            emp.Add(new Employee("Krushna","UI Developer",25));
+            emp.Add(new Employee("Rahul","Service Now",27));
+
+            //sort list in descending order
+            var sortedList = emp.OrderByDescending(s => s.Age);
+
+            foreach (Employee e in sortedList)
+            {
+                Console.WriteLine(e);
+            }
+           
+        }
+    }
+
+    //11.WAP to add elements to a Dictionary and print content of it.
+    //Use int as Key and String as Value.
+    //In second Dictionary add elements of String type as Key and Int as Value.
+
+    class WithDictonary
+    {
+        static void Main(string[] args)
+        {
+            //create Dictonary Use int as Key and String as Value.
+
+            Dictionary<int, string> dt = new Dictionary<int, string>();
+
+            dt.Add(1,"rajesh");
+            dt.Add(2, "rupesh");
+            dt.Add(3,"shyam");
+            dt.Add(4,"akash");
+            dt.Add(5, "govind");
+
+            //print dictonary
+            Console.WriteLine("Use int as Key and String as Value.......");
+            foreach (KeyValuePair<int, string> st in dt)
+            {
+                Console.WriteLine(st.Key+" "+st.Value);
+            }
+
+            //create Second Dictonary
+            Dictionary<string, int> d1 = new Dictionary<string, int>();
+
+            d1.Add("raj",1);
+            d1.Add("Shyam",2);
+            d1.Add("krushna",3);
+            d1.Add("suraj",4);
+            d1.Add("amol",5);
+
+            Console.WriteLine("Use of String type as Key and Int as Value.....");
+            foreach (KeyValuePair<string, int> s in d1)
+            {
+                Console.WriteLine(s.Key+" "+s.Value);
+            }
+        }
+    }
+
+    //12.WAP to get only the Keys from a Dictionary.
+
+    class OnlyKey
+    {
+        static void Main(string[] args)
+        {
+            //create Dictonary
+            Dictionary<int, string> dt = new Dictionary<int, string>();
+
+            dt.Add(1, "rajesh");
+            dt.Add(2, "rupesh");
+            dt.Add(3, "shyam");
+            dt.Add(4, "akash");
+            dt.Add(5, "govind");
+
+            //print dictonary
+            Console.WriteLine("get Only key.......");
+            foreach (KeyValuePair<int, string> st in dt)
+            {
+                Console.WriteLine(st.Key);
+            }
+        }
+    }
+
+    ////13.WAP to get only the Values from a Dictionary.
+    class onlyValue
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<int, string> dt = new Dictionary<int, string>();
+
+            dt.Add(1, "rajesh");
+            dt.Add(2, "rupesh");
+            dt.Add(3, "shyam");
+            dt.Add(4, "akash");
+            dt.Add(5, "govind");
+
+            //print dictonary
+            Console.WriteLine("get Only Value.......");
+            foreach (KeyValuePair<int, string> st in dt)
+            {
+                Console.WriteLine(st.Value);
+            }
+        }
+    }
+
+    //14.WAP to create a  Dictionary  using Custom class as key and any other object as value
+
+    class bike
+    {
+        string bname;
+        string model;
+        int price;
+
+        public bike(string bname, string model, int price)
+        {
+            this.Bname = bname;
+            this.Model = model;
+            this.Price = price;
+        }
+
+        public override string ToString()
+        {
+            return " Bname=" + bname + " Model=" + model + " Price=" + price;
+        }
+
+        public string Bname { get => bname; set => bname = value; }
+        public string Model { get => model; set => model = value; }
+        public int Price { get => price; set => price = value; }
+    }
+    class BikeDict
+    {
+        static void Main(string[] args)
+        {
+            //create Dictonary for bike
+            Dictionary<bike,int> b = new Dictionary<bike, int>();
+
+            b.Add(new bike("Hero","Hero",90000),1);
+            b.Add(new bike("Honda", "Sp", 95000), 2);
+            b.Add(new bike("TVS", "Star", 75000), 3);
+            b.Add(new bike("Bajaj", "Pulsor", 125000), 4);
+            b.Add(new bike("Tvs", "Sport", 85000), 5);
+
+            foreach (KeyValuePair<bike, int> bk in b)
+            {
+                Console.WriteLine(bk);
+            }
+        }
+    }
+
+
+    //15.WAP to create a Queue to add 5 objects and also remove first two and iterate over it. 
+
+    class WithQueue
+    {
+        static void Main(string[] args)
+        {
+            //create Queue
+
+            Queue<int> q = new Queue<int>();
+
+            //add element in queue
+            q.Enqueue(10);
+            q.Enqueue(20);
+            q.Enqueue(25);
+            q.Enqueue(15);
+            q.Enqueue(18);
+
+            //print element in queue
+            Console.WriteLine("Without remove element in queue");
+            foreach (int qs in q)
+            {
+                Console.WriteLine(qs);
+            }
+
+            //remove element in queue
+            for (int i = 0; i < 2; i++)
+            {
+                q.Dequeue();
+            }
+           
+            Console.WriteLine("after remove element in queue");
+            foreach (int qs in q)
+            {
+                Console.WriteLine(qs);
+            }
+        }
+    }
+
+    //16.WAP to create a Stack to store some objects and iterate over it.Also show use od push,pop,peek.
+
+    class Person
+    {
+        string pname;
+        int age;
+
+        public Person(string pname, int age)
+        {
+            this.Pname = pname;
+            this.Age = age;
+        }
+
+       public  override string ToString()
+        {
+            return "name="+pname+" age="+age;
+        }
+
+
+        public string Pname { get => pname; set => pname = value; }
+        public int Age { get => age; set => age = value; }
+    }
+    class WithStack
+    {
+        static void Main(string[] args)
+        {
+            //create Person type stack
+            Stack<Person> st = new Stack<Person>();
+
+            //push object in stack
+
+            st.Push(new Person("amol",25));
+            st.Push(new Person("Kavita",21));
+            st.Push(new Person("Rani",22));
+            st.Push(new Person("Jyoti",24));
+            st.Push(new Person("Namdev",26));
+            st.Push(new Person("Nagesh",28));
+            st.Push(new Person("Krushna",22));
+
+            foreach (Person p in st)
+            {
+                Console.WriteLine(p);
+            }
+
+            //Pop the element in list
+            st.Pop();
+            st.Peek();
+
+            Console.WriteLine("After pop & peek operation.......");
+
+            foreach (Person p in st)
+            {
+                Console.WriteLine(p);
             }
         }
     }

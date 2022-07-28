@@ -194,4 +194,77 @@ namespace Star
            
         }
     }
+
+    class Dept
+    {
+        string dname;
+        public Dept(string dname)
+        {
+            this.dname = dname;
+        }
+        public string Dname
+        {
+            get => dname;
+            set => dname = value;
+        }
+    }
+    class Emp
+    {
+        int id;
+        string ename;
+        Dept d;
+
+       
+
+        public override string ToString()
+        {
+            return $"ID:{Id} Name:{Ename} Deptname:{D.Dname}";
+        }
+
+        public Emp(int id, string ename, Dept d)
+        {
+            this.Id = id;
+            this.Ename = ename;
+            this.D = d;
+        }
+
+        public int Id { get => id; set => id = value; }
+        public string Ename { get => ename; set => ename = value; }
+        internal Dept D { get => d; set => d = value; }
+    }
+
+    class TestEmp
+    {
+        static void Main(string[] args)
+        {
+            LinkedList<Emp> l1 = new LinkedList<Emp>();
+            l1.AddLast(new Emp(1,"AA",new Dept("IT")));
+            l1.AddLast(new Emp(2, "BB", new Dept("Sales")));
+            l1.AddLast(new Emp(3, "CC", new Dept("Testing")));
+            l1.AddLast(new Emp(4, "DD", new Dept("IT")));
+            l1.AddLast(new Emp(5, "EE", new Dept("Sales")));
+            l1.AddLast(new Emp(6, "FF", new Dept("IT")));
+            l1.AddLast(new Emp(7, "GG", new Dept("Testing")));
+
+            string dname = "";
+            foreach (Emp e in l1)
+            {
+                if (e.Id == 10)
+                {
+                    dname = e.D.Dname;
+                    break;
+                }
+              
+            }
+
+            foreach (Emp e in l1)
+            {
+                if (e.D.Dname==dname)
+                {
+                    l1.Remove(e);
+                }
+            }
+
+        }
+    }
 }

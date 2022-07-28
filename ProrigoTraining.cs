@@ -394,4 +394,221 @@ namespace Star
         }
     }
 
+    //using stack
+
+    class WithStack
+    {
+        static void Main(string[] args)
+        {
+            //create stack
+            Stack<int> st = new Stack<int>();
+
+            //push element in stack
+
+            st.Push(10);
+            st.Push(20);
+            st.Push(30);
+            st.Push(25);
+            st.Push(19);
+
+            //print element in stack
+            foreach (int item in st)
+            {
+                Console.WriteLine(item);
+            }
+
+            //remove element using pop()
+            st.Pop();
+            
+        }
+    }
+
+    class WithLinkedList
+    {
+        static void Main(string[] args)
+        {
+            LinkedList<int> lst = new LinkedList<int>();
+            lst.AddLast(100);
+            lst.AddLast(200);
+            lst.AddFirst(300);
+            lst.AddFirst(50);
+            LinkedListNode<int> l1 = lst.Find(100);
+
+            lst.AddAfter(l1, 150);
+            lst.AddBefore(l1,90);
+            lst.Remove(150);
+
+            //50,300,
+        }
+    }
+
+    class WithDictonary
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, int> dd = new Dictionary<string, int>();
+            dd.Add("Ajankya", 95);
+            dd.Add("rupesh", 90);
+            dd.Add("Jyoti", 91);
+            dd.Add("Om", 98);
+
+            dd["Ajankya"] = 95;
+
+            //remove key
+          /*  dd.Remove("Rupesh");*/
+
+            Console.WriteLine(dd.Count);
+            //dd.clear();
+
+            Console.WriteLine(dd.ContainsKey("om"));
+            Console.WriteLine(dd.ContainsValue(90));
+
+            /*List<string> keys = dd.Keys.ToList();
+            Console.WriteLine(dd["Jyoti"]);
+
+            foreach (KeyValuePair<string,int>kv in dd)
+            {
+                Console.WriteLine(kv.Key+"==>"+kv.Value);
+            }*/
+
+
+        }
+    }
+
+    class WithString
+    {
+        static void Main(string[] args)
+        {
+            string s1 = "aayush";
+            char[] arr = s1.ToCharArray();
+
+            //charcater and value count
+            Dictionary<char, int> d1 = new Dictionary<char, int>();
+
+           /* d1.Add('a', 2);
+            d1['a'] = 100;
+            int v = d1['a'];*/
+
+            foreach (char ch in arr)
+            {
+                if (d1.ContainsKey(ch))
+                {
+                    int curval = d1[ch];
+                    d1[ch] = curval + 1;
+                }
+                else 
+                {
+                    d1.Add(ch,1);
+                }
+            }
+        }
+    }
+
+    class WithSortedList
+    {
+        static void Main(string[] args)
+        {
+            SortedList<string, int> ss = new SortedList<string, int>();
+
+            ss.Add("Pryia", 99);
+            ss.Add("Riya",99);
+            ss.Add("Diya", 99);
+            ss.Add("Siya", 99);
+            ss.Add("Hiya", 99);
+            ss.Add("Tiya", 99);
+            ss.Add("Kiya",99);
+            ss.Add("aayush", 99);
+
+            ss.Remove("Hiya");
+            ss["Kiya"] = 90;
+
+            Console.WriteLine(ss.ContainsKey("AA"));
+            Console.WriteLine(ss.Count);
+
+            foreach (var d in ss)
+            {
+                Console.WriteLine(d.Key+"===>"+d.Value);
+            }
+
+        }
+    }
+
+
+    //hashcode
+
+   /* class Books
+    { 
+
+    }*/
+
+    class withHashCode
+    {
+        static void Main(string[] args)
+        {
+            HashSet<string> hs = new HashSet<string>();
+            hs.Add("Amit");
+            hs.Add("Amita");
+            hs.Add("Amey");
+
+            bool x = hs.Add("Amit");
+
+            foreach (string s in hs)
+            {
+                Console.WriteLine(s);
+            }
+
+           /* HashSet<Books> hs2 = new HashSet<Books>();
+            hs2.Add(new Books(1, "java", "Kantekar", 900));
+            hs2.Add(new Books(1, "java", "Kantekar", 900));
+
+            foreach (Books b in hs2)
+            {
+                Console.WriteLine(b);
+            }*/
+        }
+    }
+
+    class DemoHashSet
+    {
+        static void Main(string[] args)
+        {
+            HashSet<string> hs1 = new HashSet<string>() { "A","BB","CC","ZZ"};
+            HashSet<string> hs2 = new HashSet<string>() {"DD","BB","CC","EE","FF"};
+
+            /*hs1.IntersectWith(hs2);*/
+            hs2.UnionWith(hs1);
+
+            Console.WriteLine(hs2.IsProperSubsetOf(hs1));
+            foreach(string s in hs1)
+            {
+                Console.WriteLine(s);
+            }
+
+            foreach (string s in hs2)
+            {
+                Console.WriteLine(s);
+            }
+
+
+        }
+    }
+
+    class DemoSorted
+    {
+        static void Main(string[] args)
+        {
+            SortedSet<string> ss = new SortedSet<string>();
+
+            ss.Add("amit");
+            ss.Add("Aayush");
+            ss.Add("Divya");
+            ss.Add("Ciya");
+            ss.Add("Ciya");
+
+            foreach (string s in ss)
+            {
+                Console.WriteLine(s);
+            }
+        }
+    }
 }
