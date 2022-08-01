@@ -4,6 +4,31 @@ using System.Text;
 
 namespace Star
 {
+    class ZeroCount
+    {
+        static void Main(string[] args)
+        {
+            int count = 0;
+            Console.WriteLine("enter array size");
+            int num = int.Parse(Console.ReadLine());
+            int[] arr = new int[num];
+            Console.WriteLine("enter elemnet");
+            for (int i = 0; i <num; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+           
+            for (int i = 0; i <= arr.Length; i++)
+            {
+                if (arr[i]<=0)
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count);
+
+        }
+    }
     class DailyPractice
     {
         static void Main(string[] args)

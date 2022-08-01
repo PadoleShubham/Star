@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	  <StartupObject>Star.WithSortedList</StartupObject>
+	  <StartupObject>Star.ZeroCount</StartupObject>
   </PropertyGroup>
 
 </Project>
